@@ -1,0 +1,50 @@
+.container {
+    text-align: center;
+    padding-top: 50px;
+    /* Add some space from the top */
+}
+
+.heading {
+    font-size: 48px;
+    /* Increase font size */
+    color: #ff007f;
+    /* Bright pink color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.5); /* Black shadow and white shadow */
+    /* Add a subtle shadow */
+    margin-bottom: 20px;
+    /* Add some space below the heading */
+}
+
+.subheading {
+    font-size: 24px;
+    /* Decrease font size */
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.5); /* Black shadow and white shadow */
+    /* Dark grey color */
+    margin-bottom: 30px;
+    /* Add space below the subheading */
+}
+
+.get-started-btn {
+    background-color: #ff007f;
+    /* Bright pink background color */
+    color: #fff;
+    /* White text color */
+    border: none;
+    /* Remove border */
+    padding: 12px 24px;
+    /* Add padding */
+    font-size: 18px;
+    /* Increase font size */
+    border-radius: 5px;
+    /* Add some rounded corners */
+    cursor: pointer;
+    /* Add pointer cursor on hover */
+    transition: background-color 0.3s;
+    /* Smooth transition for background color */
+}
+
+.get-started-btn:hover {
+    background-color: #ff3399;
+    /* Lighter pink color on hover */
+}

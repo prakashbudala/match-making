@@ -1,0 +1,49 @@
+.container {
+    max-width: 400px;
+    /* Adjust the width to accommodate contents and margin */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+h2 {
+    text-align: center;
+    color: #ff007f;
+    /* Bright pink color */
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+.input-field {
+    width: calc(100% - 22px); /* Adjusted width to accommodate padding and border */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff007f;
+    /* Bright pink color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #ff3399;
+    /* Lighter pink color on hover */
+}
