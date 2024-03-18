@@ -1,0 +1,25 @@
+.navbar {
+    background-color: #FF007F;
+    /* Couple-friendly pink */
+    overflow: hidden;
+}
+
+.nav-link {
+    float: left;
+    display: block;
+    color: #FFFFFF;
+    /* White text color */
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: #FF66A3;
+    /* Lighter shade of pink on hover */
+}
+
+.active {
+    background-color: #FF0055;
+    /* Darker shade of pink for active link */
+}
