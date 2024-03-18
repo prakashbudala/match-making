@@ -9,7 +9,8 @@
     /* Increase font size */
     color: #ff007f;
     /* Bright pink color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.5); /* Black shadow and white shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.5);
+    /* Black shadow and white shadow */
     /* Add a subtle shadow */
     margin-bottom: 20px;
     /* Add some space below the heading */
@@ -18,9 +19,8 @@
 .subheading {
     font-size: 24px;
     /* Decrease font size */
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.5); /* Black shadow and white shadow */
-    /* Dark grey color */
+    font-weight: bold;
+    color: #333;
     margin-bottom: 30px;
     /* Add space below the subheading */
 }

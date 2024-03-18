@@ -29,7 +29,7 @@ const ProfilePage = () => {
 
     return (
         <div className="container">
-            <h2>Form</h2>
+            <h2>Your Details</h2>
             <form>
                 <div className="input-container">
                     <label htmlFor="name">Name:</label>

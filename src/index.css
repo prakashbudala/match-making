@@ -5,12 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./Assets/foodieCouple.svg');
-  /* Specify the URL of your image */
-  background-size: cover;
-  /* Ensure the background image covers the entire container */
-  background-position: 20% 20%;
-
 }
 
 code {
