@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import './ProfilePage.css'; // Import CSS file
-import FoodSearch from './FoodSearch';
 
 const ProfilePage = () => {
     const [formData, setFormData] = useState({
