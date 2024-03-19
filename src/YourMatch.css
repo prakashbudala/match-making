@@ -1,0 +1,30 @@
+.your-match-container {
+    display: flex;
+    flex-direction: column;
+    /* Align vertically */
+    align-items: center;
+    /* Align horizontally */
+    height: 100vh;
+    /* Make the container full height of the viewport */
+}
+
+
+.your-match-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.common-elements-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.common-element {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.foodie-couple-image {
+    width: '200px';
+    height: '200px';
+}

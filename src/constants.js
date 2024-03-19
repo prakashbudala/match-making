@@ -1,0 +1,22 @@
+export const popularFoods = [
+    "Pizza",
+    "Burger",
+    "Sushi",
+    "Tacos",
+    "Pasta",
+    "Fried Chicken",
+    "Steak",
+    "Sushi",
+    "Ramen",
+    "Burrito",
+    "Sandwich",
+    "Curry",
+    "Salad",
+    "Ice Cream",
+    "Donuts",
+    "Pancakes",
+    "Waffles",
+    "Dim Sum",
+    "Pho",
+    "Lasagna"
+];

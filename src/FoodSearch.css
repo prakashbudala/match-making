@@ -1,0 +1,96 @@
+.food-container {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.food-input-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.food-input-container input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.food-input-container button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.selected-foods-container {
+    margin-top: 20px;
+}
+
+.selected-foods-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.selected-foods-container li {
+    margin-bottom: 5px;
+}
+
+.selected-foods-container button {
+    margin-left: 5px;
+    padding: 4px;
+    font-size: 14px;
+    border-radius: 50%;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.suggestions-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.suggestions-container li {
+    margin-bottom: 5px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* FoodSearch.css */
+
+/* Styles for the remove icon */
+.remove-icon {
+    width: 20px;
+    /* Adjust the width as needed */
+    height: 20px;
+    /* Adjust the height as needed */
+    cursor: pointer;
+}
+
+/* FoodSearch.css */
+
+.get-match-button {
+    background-color: #ff66b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 2px;
+}
