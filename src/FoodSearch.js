@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './FoodSearch.css'; // Import CSS file
 import removeIcon from './Assets/remove.png';
-import searchIcon from './Assets/search.svg';
 import { useNavigate } from 'react-router';
 
 function FoodSearch() {
@@ -16,15 +15,6 @@ function FoodSearch() {
         "Salad", "Ice Cream", "Donuts", "Pancakes", "Waffles", "Dim Sum",
         "Pho", "Lasagna"
     ];
-
-    const searchFood = () => {
-        const index = popularFoods.findIndex(food => food.toLowerCase() === searchTerm.toLowerCase());
-        if (index !== -1 && !selectedFoods.includes(popularFoods[index])) {
-            setSelectedFoods([...selectedFoods, popularFoods[index]]);
-        }
-        setSearchTerm('');
-        setSuggestions([]);
-    };
 
     const handleInputChange = (e) => {
         const value = e.target.value;
