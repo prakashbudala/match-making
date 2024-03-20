@@ -1,5 +1,5 @@
 import React from 'react';
-import foodieCouple from './Assets/foodieCouple.svg';
+import foodPreference from './Assets/foodPreference.jpg'
 import FoodSearch from './FoodSearch';
 
 const MatchingPage = () => {
@@ -16,7 +16,7 @@ const MatchingPage = () => {
     return (
         <div style={containerStyle}>
             <p> Choose your Favourite foods</p>
-            <img src={foodieCouple} alt="Foodie Couple" style={imageStyle} />
+            <img src={foodPreference} alt="Foodie Couple" style={imageStyle} />
             <FoodSearch />
         </div>
     );

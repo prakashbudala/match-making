@@ -66,9 +66,9 @@ function FoodSearch() {
                         onChange={handleInputChange}
                         placeholder="Enter food item"
                     />
-                    <img src={searchIcon} alt="Search" className="search-icon" onClick={searchFood} />
+                    <button className="get-match-button" onClick={handleGetMatch}>Get Your Match</button>
+
                 </div>
-                <button className="get-match-button" onClick={handleGetMatch}>Get Your Match</button>
                 {suggestions.length > 0 && (
                     <div className="suggestions-container">
                         <ul>
