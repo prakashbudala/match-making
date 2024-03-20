@@ -182,16 +182,8 @@ export const popularFoods = [
 const randomItems = ["Dosa",
     "Idli",
     "Vada",
-    "Sambar",
-    "Uttapam",
-    "Pongal",
-    "Upma",
-    "Pizza",
-    "Burger",
-    "Pasta",
-    "Sandwich",
-    "French Fries",
-    "Tacos",]
+    "Pizza"
+]
 
 const randomNames = [
     "Ravi", "Priya", "Suresh", "Meera", "Ajay", "Latha", "Kiran", "Divya", "Arjun", "Shreya", "Aman", "Prakash", "Gowri", "Bhanu"
@@ -204,11 +196,11 @@ function generateRandomArray() {
     const numItems = Math.floor(Math.random() * 5) + 1; // Randomly choose between 1 and 5 items
     const items = [];
     for (let i = 0; i < numItems; i++) {
-        const randomItemIndex = Math.floor(Math.random() * randomItems.length);
-        items.push(randomItems[randomItemIndex]);
+        const randomItemIndex = Math.floor(Math.random() * popularFoods.length);
+        items.push(popularFoods[randomItemIndex]);
     }
 
-    return [{ name: name, items: items }];
+    return [{ name: name, items: [...randomItems, ...items] }];
 }
 
 export const arraysToCompare = generateRandomArray();
