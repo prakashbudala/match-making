@@ -45,6 +45,9 @@ function YourMatch() {
         });
     }, [matchPercentages]);
 
+    const arraysToCompareRef = useRef(arraysToCompare);
+    arraysToCompareRef.current = arraysToCompare;
+
     useEffect(() => {
         const selectedFoods = ["Pizza"]; // Access selected foods from location state
 
@@ -57,7 +60,7 @@ function YourMatch() {
         }
 
         if (selectedFoods) {
-            const percentages = arraysToCompare.map(({ items }) => {
+            const percentages = arraysToCompareRef.current.map(({ items }) => {
                 const commonArray = findCommonElements(selectedFoods, items);
                 const percentage = (commonArray.length / selectedFoods.length) * 100;
                 setMatchedItems(commonArray); // Set matched items
@@ -74,7 +77,8 @@ function YourMatch() {
                 }
             });
         };
-    }, []);
+    }, []); // No dependencies here since arraysToCompareRef is static
+
 
     // Initialize chartRefs array and render charts when matchPercentages change
     useEffect(() => {
