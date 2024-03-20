@@ -75,7 +75,7 @@ function YourMatch() {
                 }
             });
         };
-    }, [selectedFoods]);
+    }, [localStorage.state?.data]);
 
 
     // Initialize chartRefs array and render charts when matchPercentages change
