@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import './YourMatch.css'; // Import CSS file
 import foodieCouple from './Assets/foodieCouple.svg';
-import { useLocation } from 'react-router-dom'; // Import useLocation hook
+import { useLocation, useNavigate } from 'react-router-dom'; // Import useLocation hook
 import Chart from 'chart.js/auto'; // Import Chart.js library
 import { arraysToCompare } from './constants';
 
 function YourMatch() {
+    const navigate = useNavigate();
+
     const location = useLocation(); // Use useLocation hook to access location state
     const [matchPercentages, setMatchPercentages] = useState([]);
     const [matchedItems, setMatchedItems] = useState([]);
     const chartRefs = useRef([]);
+    const [isCammon, setIsCommon] = useState(false);
     const renderCharts = useCallback(() => {
         chartRefs.current.forEach((chartRef, index) => {
             const ctx = document.getElementById(`chart-${index}`);
@@ -60,6 +63,9 @@ function YourMatch() {
                 console.log(selectedFoods, arraysToCompareRef.current)
                 const commonArray = findCommonElements(selectedFoods, items);
 
+                if (commonArray.length > 0) {
+                    setIsCommon(true)
+                }
                 return commonArray; // Return matched items array
             });
             setMatchedItems(matchedItemsArray); // Set matched items array
@@ -88,7 +94,7 @@ function YourMatch() {
         <div className="your-match-container">
             <p className="your-match-title">Your Match:</p>
             <img src={foodieCouple} alt="Foodie Couple" className="foodie-couple-image" style={{ height: "200px" }} />
-            {matchPercentages.map((percentage, index) => (
+            {isCammon > 0 ? matchPercentages.map((percentage, index) => (
                 <div key={index} style={{ display: "flex", alignItems: "center", boxShadow: "0px 0px 5px 2px rgba(0, 0, 0, 0.2)", padding: "10px", width: "500px", margin: "10px", borderRadius: "8px" }}>
                     <div style={{ height: "200px", width: "200px" }}>
                         <canvas id={`chart-${index}`} />
@@ -104,7 +110,9 @@ function YourMatch() {
                         </ul>
                     </div>
                 </div>
-            ))}
+            )) : <p>No matched found <span style={{ color: "blue", cursor: "pointer" }} onClick={() => {
+                navigate('/food-preferences');
+            }}>Click Here</span> to add food items..</p>}
 
         </div>
     );
