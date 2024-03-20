@@ -2,19 +2,13 @@ import React, { useState } from 'react';
 import './FoodSearch.css'; // Import CSS file
 import removeIcon from './Assets/remove.png';
 import { useNavigate } from 'react-router';
+import { popularFoods } from './constants';
 
 function FoodSearch() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedFoods, setSelectedFoods] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
     const navigate = useNavigate();
-
-    const popularFoods = [
-        "Pizza", "Burger", "Sushi", "Tacos", "Pasta", "Fried Chicken",
-        "Steak", "Sushi", "Ramen", "Burrito", "Sandwich", "Curry",
-        "Salad", "Ice Cream", "Donuts", "Pancakes", "Waffles", "Dim Sum",
-        "Pho", "Lasagna"
-    ];
 
     const handleInputChange = (e) => {
         const value = e.target.value;

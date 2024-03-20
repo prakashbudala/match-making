@@ -1,56 +1,52 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import './YourMatch.css'; // Import CSS file
 import foodieCouple from './Assets/foodieCouple.svg';
-// import { useLocation } from 'react-router-dom'; // Import useLocation hook
+import { useLocation } from 'react-router-dom'; // Import useLocation hook
 import Chart from 'chart.js/auto'; // Import Chart.js library
+import { arraysToCompare } from './constants';
 
 function YourMatch() {
-    // const location = useLocation(); // Use useLocation hook to access location state
+    const location = useLocation(); // Use useLocation hook to access location state
     const [matchPercentages, setMatchPercentages] = useState([]);
     const [matchedItems, setMatchedItems] = useState([]);
     const chartRefs = useRef([]);
-
-    // Define arraysToCompare internally
-    const arraysToCompare = [
-        { name: "Virat", items: ["Pizza"] },
-        { name: "Sachin", items: ["Burger", "Pizza"] },
-        { name: "Dhoni", items: ["Sushi", "Pizza", "Salad"] }
-    ];
-
     const renderCharts = useCallback(() => {
         chartRefs.current.forEach((chartRef, index) => {
             const ctx = document.getElementById(`chart-${index}`);
             if (ctx && matchPercentages[index] !== null) {
                 if (chartRef) {
-                    chartRef.destroy();
+                    chartRef.destroy(); // Destroy previous chart instance if it exists
                 }
+
+                const matchedPercentage = matchPercentages[index];
+                const remainingPercentage = 100 - matchedPercentage;
+
                 chartRefs.current[index] = new Chart(ctx, {
-                    type: 'doughnut', // Set chart type to doughnut
+                    type: 'doughnut',
                     data: {
-                        labels: [`Match Percentage ${matchPercentages[index]}`],
+                        labels: ["Matched", "Unmatched"],
                         datasets: [
                             {
                                 label: 'Match Percentage',
-                                data: [matchPercentages[index]],
-                                backgroundColor: ['#36A2EB'], // Blue color
+                                data: [Math.round(matchedPercentage), Math.round(remainingPercentage)],
+                                backgroundColor: ['Green', 'Red'], // Green and Red colors
                                 borderWidth: 1,
                             },
                         ],
                     },
                     options: {
-                        cutout: '70%', // Adjust doughnut hole size
+                        cutout: '70%',
                     },
                 });
             }
         });
-    }, [matchPercentages]);
+    }, [matchPercentages, chartRefs]);
 
     const arraysToCompareRef = useRef(arraysToCompare);
     arraysToCompareRef.current = arraysToCompare;
 
     useEffect(() => {
-        const selectedFoods = ["Pizza"]; // Access selected foods from location state
-
+        const selectedFoods = location.state?.data
         function findCommonElements(array1, array2) {
             // Create a Set from the first array to remove duplicates
             const set1 = new Set(array1);
@@ -60,12 +56,14 @@ function YourMatch() {
         }
 
         if (selectedFoods) {
-            const percentages = arraysToCompareRef.current.map(({ items }) => {
+            const matchedItemsArray = arraysToCompareRef.current.map(({ items }) => {
+                console.log(selectedFoods, arraysToCompareRef.current)
                 const commonArray = findCommonElements(selectedFoods, items);
-                const percentage = (commonArray.length / selectedFoods.length) * 100;
-                setMatchedItems(commonArray); // Set matched items
-                return percentage;
+
+                return commonArray; // Return matched items array
             });
+            setMatchedItems(matchedItemsArray); // Set matched items array
+            const percentages = matchedItemsArray.map(commonArray => (commonArray.length / selectedFoods.length) * 100);
             setMatchPercentages(percentages);
         }
 
@@ -77,7 +75,7 @@ function YourMatch() {
                 }
             });
         };
-    }, []); // No dependencies here since arraysToCompareRef is static
+    }, []);
 
 
     // Initialize chartRefs array and render charts when matchPercentages change
@@ -91,20 +89,23 @@ function YourMatch() {
             <p className="your-match-title">Your Match:</p>
             <img src={foodieCouple} alt="Foodie Couple" className="foodie-couple-image" style={{ height: "200px" }} />
             {matchPercentages.map((percentage, index) => (
-                <div key={index} style={{ display: "flex", alignItems: "center" }}>
+                <div key={index} style={{ display: "flex", alignItems: "center", boxShadow: "0px 0px 5px 2px rgba(0, 0, 0, 0.2)", padding: "10px", width: "500px", margin: "10px", borderRadius: "8px" }}>
                     <div style={{ height: "200px", width: "200px" }}>
                         <canvas id={`chart-${index}`} />
                     </div>
+
                     <div className="matched-items">
-                        <p>Matched Items for {arraysToCompare[index].name}:</p>
+                        <h2> {arraysToCompare[index].name}</h2>
+
                         <ul>
-                            {matchedItems.map((item, idx) => (
+                            {matchedItems[index].map((item, idx) => (
                                 <li key={idx}>{item}</li>
                             ))}
                         </ul>
                     </div>
                 </div>
             ))}
+
         </div>
     );
 }

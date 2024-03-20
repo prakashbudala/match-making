@@ -8,7 +8,6 @@
     /* Make the container full height of the viewport */
 }
 
-
 .your-match-title {
     font-size: 18px;
     font-weight: bold;
@@ -25,6 +24,56 @@
 }
 
 .foodie-couple-image {
-    width: '200px';
-    height: '200px';
+    width: 200px;
+    /* Removed single quotes */
+    height: 200px;
+    /* Removed single quotes */
 }
+
+.matched-items-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+.chart-container {
+    height: 200px;
+    width: 200px;
+}
+
+.matched-items {
+    max-height: 200px;
+    overflow-y: auto;
+    width: calc(100% - 220px);
+}
+
+.matched-items::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+}
+
+.matched-items::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    /* Color of the scrollbar thumb */
+    border-radius: 4px;
+    /* Radius of the scrollbar thumb */
+}
+
+.matched-items::-webkit-scrollbar-track {
+
+    background-color: #ffff;
+    /* Color of the scrollbar track */
+    border-radius: 4px;
+    /* Radius of the scrollbar track */
+}
+
+.matched-items ul {
+    margin: 0;
+    padding: 0;
+}
+
+.matched-items li {
+    list-style: none;
+}
+
+/* Add any other styling as needed */

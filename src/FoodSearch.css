@@ -26,7 +26,6 @@
     padding: 8px 12px;
     font-size: 16px;
     border-radius: 4px;
-    background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -86,7 +85,7 @@
 /* FoodSearch.css */
 
 .get-match-button {
-    background-color: #ff66b3;
+    background-color: #FF007F;
     color: white;
     border: none;
     padding: 10px 20px;
