@@ -75,7 +75,7 @@ function YourMatch() {
                 }
             });
         };
-    }, []);
+    }, [arraysToCompare]);
 
 
     // Initialize chartRefs array and render charts when matchPercentages change
