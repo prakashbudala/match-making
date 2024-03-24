@@ -35,7 +35,6 @@ function FoodSearch() {
 
     const handleGetMatch = () => {
         // Add logic to get the match based on selected foods
-        console.log("Getting your match...");
         navigate('/yourmatch', { state: { data: selectedFoods } });
 
     };

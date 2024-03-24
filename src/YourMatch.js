@@ -7,12 +7,11 @@ import { arraysToCompare } from './constants';
 
 function YourMatch() {
     const navigate = useNavigate();
-
     const location = useLocation(); // Use useLocation hook to access location state
     const [matchPercentages, setMatchPercentages] = useState([]);
     const [matchedItems, setMatchedItems] = useState([]);
     const chartRefs = useRef([]);
-    const [isCammon, setIsCommon] = useState(false);
+    const [isCommon, setIsCommon] = useState(false); // Corrected variable name
     const renderCharts = useCallback(() => {
         chartRefs.current.forEach((chartRef, index) => {
             const ctx = document.getElementById(`chart-${index}`);
@@ -49,7 +48,7 @@ function YourMatch() {
     arraysToCompareRef.current = arraysToCompare;
 
     useEffect(() => {
-        const selectedFoods = location.state?.data
+        const selectedFoods = location.state?.data;
         function findCommonElements(array1, array2) {
             // Create a Set from the first array to remove duplicates
             const set1 = new Set(array1);
@@ -60,11 +59,10 @@ function YourMatch() {
 
         if (selectedFoods) {
             const matchedItemsArray = arraysToCompareRef.current.map(({ items }) => {
-                console.log(selectedFoods, arraysToCompareRef.current)
                 const commonArray = findCommonElements(selectedFoods, items);
 
                 if (commonArray.length > 0) {
-                    setIsCommon(true)
+                    setIsCommon(true);
                 }
                 return commonArray; // Return matched items array
             });
@@ -93,8 +91,10 @@ function YourMatch() {
     return (
         <div className="your-match-container">
             <p className="your-match-title">Your Match:</p>
+
             <img src={foodieCouple} alt="Foodie Couple" className="foodie-couple-image" style={{ height: "200px" }} />
-            {isCammon > 0 ? matchPercentages.map((percentage, index) => (
+            {isCommon ? matchPercentages.map((percentage, index) => (
+                percentage > 0 &&
                 <div key={index} style={{ display: "flex", alignItems: "center", boxShadow: "0px 0px 5px 2px rgba(0, 0, 0, 0.2)", padding: "10px", width: "500px", margin: "10px", borderRadius: "8px" }}>
                     <div style={{ height: "200px", width: "200px" }}>
                         <canvas id={`chart-${index}`} />
