@@ -12,11 +12,16 @@ const ProfilePage = () => {
     const navigate = useNavigate();
     const handleClick = (e) => {
         e.preventDefault(); // Prevent the default button behavior
-        sessionStorage.setItem('loggedIn', true);
-        sessionStorage.setItem('formData', JSON.stringify(formData));
-        setLoggedIn(true);
-        // Here you can add your logic to submit the form data, such as sending it to a backend server
-        navigate('/food-preferences', { state: { formData } });
+        if (formData.name.length > 0 && formData.age.length > 0 && formData.location.length > 0) {
+            sessionStorage.setItem('loggedIn', true);
+            sessionStorage.setItem('formData', JSON.stringify(formData));
+            setLoggedIn(true);
+            // Here you can add your logic to submit the form data, such as sending it to a backend server
+            navigate('/food-preferences', { state: { formData } });
+        } else {
+            alert("Please fill the required details");
+        }
+
     };
 
     const LoggedIndata = sessionStorage.getItem('formData');
@@ -72,7 +77,14 @@ const ProfilePage = () => {
             ) : <div className="container">
                 <h2>Welcome to Foodie Match {JSON.parse(LoggedIndata)?.name}</h2> <br></br><span style={{ color: "blue", cursor: "pointer" }} onClick={() => {
                     navigate('/food-preferences');
-                }}>Click Here to add food items..</span>
+                }}>Click Here</span><span> to add food items..</span><br></br><br></br>
+                or <br></br>
+                <br></br>
+                <button class="logout-button" onClick={() => {
+                    sessionStorage.removeItem("loggedIn")
+                    setLoggedIn(false)
+                }}>Logout</button>
+
             </div>}
         </>
     );

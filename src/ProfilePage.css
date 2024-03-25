@@ -23,12 +23,14 @@ label {
 }
 
 .input-field {
-    width: calc(100% - 22px); /* Adjusted width to accommodate padding and border */
+    width: calc(100% - 22px);
+    /* Adjusted width to accommodate padding and border */
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
 }
 
 .submit-button {
@@ -46,4 +48,26 @@ label {
 .submit-button:hover {
     background-color: #ff3399;
     /* Lighter pink color on hover */
+}
+
+.logout-button {
+    background-color: #ff3399;
+
+    /* Red */
+    color: #fff;
+    /* White text */
+    padding: 10px 20px;
+    /* Padding around the text */
+    border: none;
+    /* No border */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Show pointer cursor on hover */
+    font-size: 16px;
+    /* Font size */
+    font-weight: bold;
+    /* Bold text */
+    transition: background-color 0.3s;
+    /* Smooth transition for background color */
 }
