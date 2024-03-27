@@ -1,25 +1,40 @@
 .navbar {
+    display: flex;
+    justify-content: flex-start;
+    /* Start from the left */
+    align-items: center;
     background-color: #FF007F;
-    /* Couple-friendly pink */
     overflow: hidden;
 }
 
 .nav-link {
-    float: left;
-    display: block;
     color: #FFFFFF;
-    /* White text color */
     text-align: center;
-    padding: 14px 20px;
     text-decoration: none;
+    padding: 14px 20px;
 }
 
 .nav-link:hover {
     background-color: #FF66A3;
-    /* Lighter shade of pink on hover */
 }
 
 .active {
     background-color: #FF0055;
-    /* Darker shade of pink for active link */
+}
+
+.navbar img {
+    height: 25px;
+    width: 25px;
+}
+
+/* Push the avatar to the right end */
+.navbar .avatar-container {
+    flex-grow: 1;
+    /* Grow to fill the available space */
+    display: flex;
+    justify-content: flex-end;
+    /* Push content to the right end */
+    margin-right: 20px;
+    /* Add margin to separate the avatar from other links */
+    color: #FFFFFF;
 }

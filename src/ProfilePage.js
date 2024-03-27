@@ -78,13 +78,8 @@ const ProfilePage = () => {
                 <h2>Welcome to Foodie Match {JSON.parse(LoggedIndata)?.name}</h2> <br></br><span style={{ color: "blue", cursor: "pointer" }} onClick={() => {
                     navigate('/food-preferences');
                 }}>Click Here</span><span> to add food items..</span><br></br><br></br>
-                or <br></br>
+                
                 <br></br>
-                <button class="logout-button" onClick={() => {
-                    sessionStorage.removeItem("loggedIn")
-                    setLoggedIn(false)
-                }}>Logout</button>
-
             </div>}
         </>
     );
